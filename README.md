@@ -4,7 +4,7 @@
 >Alterações feitas
 
  * Adicionado o bloqueio de tela e seu icone no polybar
- * Tradução para o português a caixa de diálogo dos botões desligar,reiniciar e Sair.
+ * Tradução para o português a caixa de diálogo dos botões desligar, reiniciar e Sair.
    
 
  ##Modo de usar  
@@ -13,7 +13,7 @@
  
  Faça o backup da pasta polybar dentro de `~/.config`, após isso, copie os arquivos da baixados  e subescreva  em `~/.config/polybar`.  
  
- Reinice o I3WM usando os teclas  `super+shift+r`.
+ Reinice o I3WM usando as teclas  `super+shift+r`.
 
 
  

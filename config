@@ -129,9 +129,16 @@ click-left = ~/.config/polybar/shutdown.sh
 background = ${colors.background}
 
 [module/lock]
-type=custom/text
-content="  "
-content-foreground =${colors.accent}
+type = custom/text
+content = "  "
+content-foreground = ${colors.accent}
 click-left = ~/.config/polybar/lock.sh
-background= ${colors.background}}
+background = ${colors.background}}
+
+[module/led]
+type = custom/text
+content = " 󰌬 "
+content-foreground = ${colors.accent}
+click-left = ~/.config/polybar/led.sh
+background = ${colors.backgrounds}
 

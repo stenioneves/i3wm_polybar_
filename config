@@ -33,7 +33,7 @@ font-1 = "Symbols Nerd Font:size=12;3"
 
 modules-left = workspaces
 modules-center = date
-modules-right = lock updates i3-helper network battery volume logout reboot shutdown
+modules-right = systray led lock updates i3-helper network battery volume logout reboot shutdown
 
 [module/workspaces]
 type = internal/i3
@@ -142,3 +142,6 @@ content-foreground = ${colors.accent}
 click-left = ~/.config/polybar/led.sh
 background = ${colors.backgrounds}
 
+[module/systray]
+type = internal/tray
+tray-spacing = 16pt

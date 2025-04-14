@@ -16,14 +16,17 @@
 ;
 ;==========================================================
 
+
 [colors]
-background = #282A2E
-background-alt = #373B41
-foreground = #C5C8C6
-primary = #df88bc
-secondary = #8ABEB7
-alert = #A54242
-disabled = #707880
+background = #282a36
+background-alt = #44475a
+foreground = #e6be7f
+primary = #ce7e00
+secondary = #ffb86c
+alert = #ff5555
+disabled = #6272a4
+
+
 
 [bar/main]
 width = 100%
@@ -44,8 +47,8 @@ border-color = #00000000
 ;padding-right = 1
 
 
-module-margin-left = 0.5
-module-margin-right = 0.5
+module-margin-left = 1
+module-margin-right = 1
 
 ;separator = |
 ;separator-foreground = ${colors.disabled}
@@ -55,7 +58,7 @@ font-1 = "Symbols Nerd Font:size=12;2"
 
 modules-left = xworkspaces xwindow
 modules-center = date lock led
-modules-right =  systray updates pulseaudio network i3-helper logout reboot shutdown
+modules-right =  systray pulseaudio wlan eth logout reboot shutdown
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -137,11 +140,13 @@ label-disconnected = %{F#F0C674}%ifname%%{F#707880} disconnected
 inherit = network-base
 interface-type = wireless
 label-connected = %{F#F0C674}%ifname%%{F-} %essid% %local_ip%
+format-padding = 1
 
 [module/eth]
 inherit = network-base
 interface-type = wired
 label-connected = %{F#F0C674}%ifname%%{F-} %local_ip%
+format-padding = 1
 
 [module/date]
 type = internal/date
@@ -157,21 +162,21 @@ format-padding = 1
 
 [module/logout]
 type = custom/text
-content = "  "
+content = "󰩈"
 content-foreground = ${colors.primary}
 click-left = ~/.config/polybar/logout.sh
 background = ${colors.background}
 
 [module/reboot]
 type = custom/text
-content = "  "
+content = " 󰁯 "
 content-foreground = ${colors.primary}
 click-left = ~/.config/polybar/reboot.sh
 background = ${colors.background}
 
 [module/shutdown]
 type = custom/text
-content = "  "
+content = " ⏼ "
 content-foreground = ${colors.primary}
 click-left = ~/.config/polybar/shutdown.sh
 background = ${colors.background}
@@ -183,26 +188,16 @@ content-foreground =${colors.primary}
 click-left = ~/.config/polybar/lock.sh
 background= ${colors.background}}
 
-[module/updates]
-type = custom/script
-exec = ~/.config/polybar/updates-check.sh
-interval = 5
-click-left = ~/.config/polybar/updates-install.sh
-click-right = ~/.config/polybar/updates-check.sh check
-format-padding = 1
 
-[module/i3-helper]
-type = custom/text
-content = 󰋽 i3 help
-content-foreground = ${colors.accent}
-click-left = bash ~/.config/polybar/i3-helper.sh
-content-padding = 1
+
 [module/led]
 type = custom/text
 content = " 󰌬 "
 content-foreground = ${colors.primary}
 click-left = ~/.config/polybar/led.sh
 background = ${colors.backgrounds}
+
+
 
 [settings]
 screenchange-reload = true

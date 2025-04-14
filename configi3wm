@@ -17,7 +17,7 @@ set $mod Mod4
 #    font pango:FontAwesome 9
 #    position top
 #    tray_output none
-#    status_command bumblebee-status -m pulseaudio battery bluetooth brightness mpd cpu datetime indicator memory nic nvidiagpu pasource sensors system -t iceberg
+
 #}
 
 
@@ -68,7 +68,8 @@ exec_always --no-startup-id ~/.config/i3/pywal.sh
 
 # Launch polygar with delay
 exec_always --no-startup-id bash -c "sleep 3 && $HOME/.config/polybar/launch.sh"
-
+#Iniciar o mapeamento do led
+exec_always --no-startup-id bash -c "sleep 2 && $HOME/.config/polybar/led.sh"
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -83,7 +84,9 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id j4-dmenu-desktop 
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -location 2 -yoffset 30
+#bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -location 2 -yoffset 30
+#Modo de exibição do Wofi
+bindsym $mod+d exec --no-startup-id rofi -display-drun "MENU " -show drun -show-icons
 bindsym $mod+Tab exec --no-startup-id rofi -show window -show-icons -location 2 -yoffset 30
 bindsym $mod+Shift+Tab exec --no-startup-id rofi -show windowcd -show-icons -location 2 -yoffset 30
 
@@ -150,6 +153,8 @@ bindsym $mod+b exec firefox
 bindsym $mod+n exec nemo
 # Open Pluma
 bindsym $mod+t exec pluma
+#Diálogo energia
+bindsym $mod+p exec ~/.config/i3/scripts/power1.sh
 
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -194,7 +199,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Você pressionu o atalho para sair. Deseja realmente sair do i3? Isso irá encerrar sua sessão.' -B 'Sim, sair do i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -322,15 +327,17 @@ bindsym $mod+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s*b
 
 #Applications startup
 exec --no-startup-id telegram-desktop
-#exec --no-startup-id vk-messenger
+exec --no-startup-id vk-messenger
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id libinput-gestures-setup start
 
+#Screenshoter
+bindsym --release Shift+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh partial
+bindsym --release Ctrl+Shift+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh partial clipboard
 
-
-
+bindsym --release Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh full
 bindsym --release Ctrl+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh full clipboard
 
 bindsym --release Mod1+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh current
@@ -348,3 +355,4 @@ bindsym $mod+l exec --no-startup-id sh $HOME/.config/i3/lock.sh suspend
 
 # Screen recording shortcut (toggle start/stop)
 bindsym $mod+o exec --no-startup-id ~/.config/i3/recorder.sh
+

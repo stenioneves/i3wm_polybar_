@@ -322,17 +322,15 @@ bindsym $mod+space exec --no-startup-id "setxkbmap -query | grep -q 'layout:\s*b
 
 #Applications startup
 exec --no-startup-id telegram-desktop
-exec --no-startup-id vk-messenger
+#exec --no-startup-id vk-messenger
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id libinput-gestures-setup start
 
-#Screenshoter
-bindsym --release Shift+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh partial
-bindsym --release Ctrl+Shift+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh partial clipboard
 
-bindsym --release Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh full
+
+
 bindsym --release Ctrl+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh full clipboard
 
 bindsym --release Mod1+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh current

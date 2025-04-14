@@ -70,6 +70,7 @@ exec_always --no-startup-id ~/.config/i3/pywal.sh
 exec_always --no-startup-id bash -c "sleep 3 && $HOME/.config/polybar/launch.sh"
 #Iniciar o mapeamento do led
 exec_always --no-startup-id bash -c "sleep 2 && $HOME/.config/polybar/led.sh"
+exec_always --no-startup-id bash -c "picom --config /home/stenio/.config/picom/picom.conf"
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -332,6 +333,7 @@ exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id dunst
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id libinput-gestures-setup start
+#exec --no-startup-id "picom --config /home/stenio/.config/picom/picom.conf"
 
 #Screenshoter
 bindsym --release Shift+Print exec --no-startup-id sh $HOME/.config/i3/screenshot.sh partial

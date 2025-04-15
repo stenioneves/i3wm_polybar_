@@ -17,7 +17,7 @@ O arquivo _picpm.conf_ dever para `~/config/picom`
  
  Reinice o I3WM usando as teclas  `super+shift+r`.    
 
-### Captura de tela
+### Captura de tela.
 
 ![Imagem da área de trabalho](https://github.com/stenioneves/i3wm_polybar_/blob/main/2_003.png?raw=true)
 
